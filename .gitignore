@@ -8,3 +8,8 @@ wheels/
 
 # Virtual environments
 .venv
+
+# Course poster / slides (keep local, not in repo)
+cg poster html .html
+cg poster pdf.pdf
+cg ppt final.pptx
