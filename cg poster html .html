@@ -1,0 +1,424 @@
+W<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AimLabs 3D — Project Poster</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Share+Tech+Mono&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background:#0a0a0f;
+  display:flex; justify-content:center; align-items:flex-start;
+  min-height:100vh; padding:32px;
+  font-family:'DM Sans',sans-serif;
+}
+.page {
+  width:794px; height:950px;
+  background:#07070d;
+  position:relative; overflow:hidden;
+  border:1px solid #1a1a2e;
+}
+.page::before {
+  content:''; position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(0,220,180,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,220,180,0.035) 1px, transparent 1px);
+  background-size:40px 40px; z-index:0;
+}
+.accent-bar {
+  position:absolute; top:0; left:0; right:0; height:4px;
+  background:linear-gradient(90deg,#00dcb4,#00a3ff,#a855f7,#00dcb4);
+  background-size:300% 100%;
+  animation:gs 6s linear infinite; z-index:10;
+}
+@keyframes gs{0%{background-position:0%}100%{background-position:300%}}
+.deco {
+  position:absolute; border-radius:50%; z-index:0;
+  border:1px solid rgba(0,220,180,0.06);
+}
+.content { position:relative; z-index:2; padding:26px 40px 22px; }
+
+/* HEADER */
+.hdr { display:flex; align-items:flex-start; justify-content:space-between; margin-bottom:12px; padding-top:6px; }
+.ltag { font-family:'Share Tech Mono',monospace; font-size:9px; color:#00dcb4; letter-spacing:4px; text-transform:uppercase; margin-bottom:6px; }
+h1 { font-family:'Orbitron',monospace; font-size:46px; font-weight:900; color:#f0f4ff; line-height:1; letter-spacing:-1px; }
+h1 span { color:#00dcb4; }
+.sub { font-size:11.5px; color:#6b7280; margin-top:5px; font-weight:300; letter-spacing:1px; }
+.badges { display:flex; flex-direction:column; align-items:flex-end; gap:5px; padding-top:4px; }
+.badge { font-family:'Share Tech Mono',monospace; font-size:8px; letter-spacing:2px; padding:3px 9px; border-radius:2px; text-transform:uppercase; }
+.bt { background:rgba(0,220,180,0.12); color:#00dcb4; border:0.5px solid rgba(0,220,180,0.3); }
+.bb { background:rgba(0,163,255,0.10); color:#00a3ff; border:0.5px solid rgba(0,163,255,0.3); }
+.bp { background:rgba(168,85,247,0.10); color:#a855f7; border:0.5px solid rgba(168,85,247,0.3); }
+
+.divider { height:0.5px; background:linear-gradient(90deg,#00dcb4 0%,rgba(0,220,180,0.2) 60%,transparent); margin-bottom:12px; }
+
+/* SCREENSHOTS */
+.screens { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:12px; }
+.sw { border-radius:5px; overflow:hidden; border:0.5px solid rgba(255,255,255,0.1); position:relative; }
+.slbl {
+  position:absolute; bottom:0; left:0; right:0;
+  background:linear-gradient(transparent,rgba(0,0,0,0.78));
+  padding:10px 10px 6px;
+  font-family:'Share Tech Mono',monospace; font-size:8.5px; color:#9ca3af; letter-spacing:2px;
+}
+.slbl strong { display:block; font-size:10px; color:#e2e8f0; }
+
+/* BODY GRID */
+.body-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:12px; }
+.card { background:rgba(255,255,255,0.02); border:0.5px solid rgba(255,255,255,0.07); border-radius:5px; padding:12px; }
+.st {
+  font-family:'Share Tech Mono',monospace; font-size:8px; letter-spacing:3px; text-transform:uppercase;
+  margin-bottom:9px; padding-bottom:5px; border-bottom:0.5px solid rgba(255,255,255,0.07);
+  display:flex; align-items:center; gap:6px;
+}
+.dot { width:5px; height:5px; border-radius:50%; flex-shrink:0; }
+.dt{background:#00dcb4;} .db{background:#00a3ff;} .dp{background:#a855f7;} .da{background:#f59e0b;}
+
+/* CG list */
+.cgl { display:flex; flex-direction:column; gap:2.5px; }
+.ci { display:flex; align-items:center; gap:8px; padding:2px 7px; border-radius:3px; border-left:2px solid transparent; background:rgba(0,220,180,0.02); }
+.ci.t{border-left-color:#00dcb4;} .ci.b{border-left-color:#00a3ff;} .ci.p{border-left-color:#a855f7;} .ci.a{border-left-color:#f59e0b;}
+.cl { font-family:'Share Tech Mono',monospace; font-size:9px; color:#d1d5db; flex:1; }
+.ctag { font-size:8px; color:#4b5563; font-family:'Share Tech Mono',monospace; }
+
+/* Tech */
+.tl { display:flex; flex-direction:column; gap:6px; }
+.ti { display:flex; align-items:flex-start; gap:8px; }
+.tn { font-family:'Share Tech Mono',monospace; font-size:11px; min-width:72px; flex-shrink:0; }
+.td { font-size:9px; color:#6b7280; line-height:1.5; font-weight:300; }
+
+/* Controls */
+.ctrl-grid { display:grid; grid-template-columns:1fr 1fr; gap:3px; }
+.cr { display:flex; align-items:center; gap:5px; padding:2px 0; }
+.ck { font-family:'Share Tech Mono',monospace; font-size:8px; color:#00a3ff; background:rgba(0,163,255,0.08); padding:1px 5px; border-radius:2px; border:0.5px solid rgba(0,163,255,0.2); min-width:48px; text-align:center; flex-shrink:0; }
+.ca { font-size:9px; color:#6b7280; font-weight:300; }
+
+/* BOTTOM */
+.bot { display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; margin-bottom:12px; }
+.shd { display:flex; flex-direction:column; gap:5px; }
+.sh { padding:8px 9px; border-radius:3px; background:rgba(255,255,255,0.02); border:0.5px solid rgba(255,255,255,0.07); }
+.shn { font-family:'Share Tech Mono',monospace; font-size:9.5px; margin-bottom:3px; }
+.shn.t{color:#00dcb4;} .shn.b{color:#00a3ff;} .shn.p{color:#a855f7;}
+.shd2 { font-size:9px; color:#6b7280; line-height:1.4; font-weight:300; }
+
+.pipe { display:flex; flex-direction:column; gap:3px; }
+.ps { display:flex; align-items:center; gap:6px; padding:4px 7px; border-radius:3px; background:rgba(255,255,255,0.02); border:0.5px solid rgba(255,255,255,0.06); }
+.pn { font-family:'Share Tech Mono',monospace; font-size:9px; color:#f59e0b; min-width:12px; }
+.pl { font-size:9px; color:#6b7280; font-weight:300; }
+.pd { font-family:'Share Tech Mono',monospace; font-size:8px; color:#374151; margin-left:auto; }
+
+/* Footer */
+.footer { padding-top:4px; border-top:0.5px solid rgba(255,255,255,0.05); display:flex; flex-direction:column; gap:3px; }
+.footer-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:2px; }
+.fl { font-family:'Share Tech Mono',monospace; font-size:8px; color:#374151; letter-spacing:2px; }
+.fr { font-family:'Share Tech Mono',monospace; font-size:8px; color:#4b5563; letter-spacing:1px; }
+.footer-names { display:flex; flex-direction:column; gap:3px; }
+.footer-names .fl { font-size:10px; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="accent-bar"></div>
+  <div class="deco" style="width:280px;height:280px;top:55px;right:-75px;"></div>
+  <div class="deco" style="width:160px;height:160px;bottom:70px;left:-48px;border-color:rgba(168,85,247,0.06);"></div>
+
+  <div class="content">
+
+    <!-- HEADER -->
+    <div class="hdr">
+      <div>
+        <div class="ltag">// computer graphics project</div>
+        <h1>AIM<span>LABS</span> 3D</h1>
+        <div class="sub">Python · First-Person Aim Trainer · Real-Time 3D Rendering</div>
+      </div>
+      <div class="badges">
+        <span class="badge bt">OpenGL 3.3</span>
+        <span class="badge bb">Python 3.10+</span>
+        <span class="badge bp">ModernGL</span>
+      </div>
+    </div>
+    <div class="divider"></div>
+
+    <!-- SCREENSHOTS (SVG illustrations matching game) -->
+    <div class="screens">
+
+      <!-- Field Mode -->
+      <div class="sw">
+        <svg viewBox="0 0 380 200" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%;">
+          <rect width="380" height="200" fill="#0c1830"/>
+          <rect x="0" y="118" width="380" height="82" fill="#1a4820"/>
+          <rect x="0" y="92" width="88" height="34" fill="#1c5020"/>
+          <rect x="292" y="92" width="88" height="34" fill="#1c5020"/>
+          <ellipse cx="190" cy="118" rx="65" ry="16" fill="rgba(160,255,160,0.11)"/>
+          <!-- crosshair -->
+          <line x1="188" y1="98" x2="192" y2="98" stroke="#00e8c8" stroke-width="1.5"/>
+          <line x1="190" y1="96" x2="190" y2="100" stroke="#00e8c8" stroke-width="1.5"/>
+          <!-- red humanoid -->
+          <g transform="translate(110,78)">
+            <circle cx="0" cy="-4.5" r="4.5" fill="#e04040"/>
+            <rect x="-4" y="0" width="8" height="13" rx="1" fill="#c02020"/>
+            <rect x="-6.5" y="1" width="2.5" height="9" rx="1" fill="#c02020"/>
+            <rect x="4" y="1" width="2.5" height="9" rx="1" fill="#c02020"/>
+            <rect x="-3" y="13" width="2.5" height="9" rx="1" fill="#c02020"/>
+            <rect x="0.5" y="13" width="2.5" height="9" rx="1" fill="#c02020"/>
+          </g>
+          <!-- blue big humanoid -->
+          <g transform="translate(153,63)">
+            <circle cx="0" cy="-7" r="7" fill="#4a8fff"/>
+            <rect x="-6" y="0" width="12" height="20" rx="1" fill="#2a5fd0"/>
+            <rect x="-10" y="1" width="4" height="14" rx="1" fill="#2a5fd0"/>
+            <rect x="6" y="1" width="4" height="14" rx="1" fill="#2a5fd0"/>
+            <rect x="-5" y="20" width="4" height="14" rx="1" fill="#2a5fd0"/>
+            <rect x="1" y="20" width="4" height="14" rx="1" fill="#2a5fd0"/>
+          </g>
+          <!-- magenta small -->
+          <g transform="translate(186,82)">
+            <circle cx="0" cy="-4" r="4" fill="#e055c0"/>
+            <rect x="-3.5" y="0" width="7" height="12" rx="1" fill="#b030a0"/>
+            <rect x="-6" y="1" width="2.5" height="8" rx="1" fill="#b030a0"/>
+            <rect x="3.5" y="1" width="2.5" height="8" rx="1" fill="#b030a0"/>
+            <rect x="-3" y="12" width="2.2" height="8" rx="1" fill="#b030a0"/>
+            <rect x="0.8" y="12" width="2.2" height="8" rx="1" fill="#b030a0"/>
+          </g>
+          <!-- cyan tiny -->
+          <g transform="translate(208,86)">
+            <circle cx="0" cy="-3" r="3" fill="#30d0e0"/>
+            <rect x="-3" y="0" width="6" height="10" rx="1" fill="#18b0c0"/>
+            <rect x="-5" y="1" width="2" height="7" rx="1" fill="#18b0c0"/>
+            <rect x="3" y="1" width="2" height="7" rx="1" fill="#18b0c0"/>
+            <rect x="-2.5" y="10" width="2" height="7" rx="1" fill="#18b0c0"/>
+            <rect x="0.5" y="10" width="2" height="7" rx="1" fill="#18b0c0"/>
+          </g>
+          <!-- purple -->
+          <g transform="translate(234,80)">
+            <circle cx="0" cy="-4.5" r="4.5" fill="#a855f7"/>
+            <rect x="-4" y="0" width="8" height="13" rx="1" fill="#7030d0"/>
+            <rect x="-6.5" y="1" width="2.5" height="9" rx="1" fill="#7030d0"/>
+            <rect x="4" y="1" width="2.5" height="9" rx="1" fill="#7030d0"/>
+            <rect x="-3" y="13" width="2.5" height="9" rx="1" fill="#7030d0"/>
+            <rect x="0.5" y="13" width="2.5" height="9" rx="1" fill="#7030d0"/>
+          </g>
+          <!-- blue small -->
+          <g transform="translate(260,84)">
+            <circle cx="0" cy="-3.5" r="3.5" fill="#5090ff"/>
+            <rect x="-3.5" y="0" width="7" height="11" rx="1" fill="#2a60d0"/>
+            <rect x="-6" y="1" width="2.5" height="8" rx="1" fill="#2a60d0"/>
+            <rect x="3.5" y="1" width="2.5" height="8" rx="1" fill="#2a60d0"/>
+            <rect x="-3" y="11" width="2" height="8" rx="1" fill="#2a60d0"/>
+            <rect x="1" y="11" width="2" height="8" rx="1" fill="#2a60d0"/>
+          </g>
+          <!-- AK-47 gun -->
+          <g transform="translate(195,148) rotate(-12)">
+            <!-- stock -->
+            <rect x="0" y="6" width="28" height="8" rx="1" fill="#1a1a1a"/>
+            <rect x="2" y="12" width="20" height="5" rx="1" fill="#222"/>
+            <!-- receiver body -->
+            <rect x="26" y="4" width="48" height="10" rx="1" fill="#111"/>
+            <!-- barrel -->
+            <rect x="72" y="6" width="32" height="4" rx="1" fill="#0d0d0d"/>
+            <!-- muzzle tip -->
+            <rect x="103" y="5" width="5" height="6" rx="1" fill="#1a1a1a"/>
+            <!-- magazine (curved box) -->
+            <rect x="38" y="14" width="10" height="18" rx="2" fill="#1a1a1a" transform="rotate(5,38,14)"/>
+            <!-- trigger guard -->
+            <path d="M34,14 Q36,22 42,22 L42,20 Q37,20 36,14Z" fill="#0d0d0d"/>
+            <!-- top rail / sight -->
+            <rect x="28" y="3" width="44" height="2" rx="0.5" fill="#222"/>
+            <!-- charging handle -->
+            <rect x="64" y="3" width="4" height="3" rx="0.5" fill="#2a2a2a"/>
+          </g>
+          <!-- hud -->
+          <text x="8" y="15" font-family="monospace" font-size="9" fill="#f0c040" font-weight="bold">SCORE  0000</text>
+          <text x="8" y="27" font-family="monospace" font-size="8" fill="#00a3ff" font-weight="bold">ACC   0.0%</text>
+          <text x="8" y="38" font-family="monospace" font-size="7" fill="#6b7280">LEVEL  Easy</text>
+          <text x="346" y="15" font-family="monospace" font-size="10" fill="white" font-weight="bold">0:34</text>
+          <text x="292" y="192" font-family="monospace" font-size="9" fill="white">27 / ∞</text>
+          <rect x="292" y="194" width="80" height="3" rx="1" fill="#0f2a0f"/>
+          <rect x="292" y="194" width="58" height="3" rx="1" fill="#00dcb4"/>
+        </svg>
+        <div class="slbl"><strong>Field Mode</strong>HUMANOID TARGETS · BODY + HEAD HITBOXES</div>
+      </div>
+
+      <!-- Arena Mode -->
+      <div class="sw">
+        <svg viewBox="0 0 380 200" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%;">
+          <rect width="380" height="200" fill="#09091a"/>
+          <rect x="0" y="135" width="380" height="65" fill="#0e0e24"/>
+          <polygon points="0,200 0,62 62,135 62,200" fill="#11113a"/>
+          <polygon points="380,200 380,62 318,135 318,200" fill="#11113a"/>
+          <rect x="62" y="62" width="256" height="73" fill="#0d0d2e"/>
+          <ellipse cx="190" cy="135" rx="75" ry="18" fill="rgba(120,120,255,0.07)"/>
+          <rect x="0" y="170" width="380" height="2" fill="#5020e0" opacity="0.7"/>
+          <!-- crosshair -->
+          <line x1="188" y1="98" x2="192" y2="98" stroke="#00e8c8" stroke-width="1.5"/>
+          <line x1="190" y1="96" x2="190" y2="100" stroke="#00e8c8" stroke-width="1.5"/>
+          <!-- purple big -->
+          <circle cx="118" cy="96" r="17" fill="#6a28c0"/>
+          <ellipse cx="112" cy="89" rx="5" ry="3" fill="rgba(255,255,255,0.2)"/>
+          <!-- magenta -->
+          <circle cx="88" cy="114" r="13" fill="#b82898"/>
+          <ellipse cx="83" cy="108" rx="4" ry="2.5" fill="rgba(255,255,255,0.2)"/>
+          <!-- orange -->
+          <circle cx="163" cy="127" r="14" fill="#cc7800"/>
+          <ellipse cx="158" cy="121" rx="4" ry="2.5" fill="rgba(255,255,255,0.2)"/>
+          <!-- red -->
+          <circle cx="218" cy="112" r="13" fill="#c02818"/>
+          <ellipse cx="213" cy="106" rx="4" ry="2.2" fill="rgba(255,255,255,0.2)"/>
+          <!-- pink -->
+          <circle cx="198" cy="130" r="11" fill="#d83890"/>
+          <ellipse cx="194" cy="125" rx="3.5" ry="2" fill="rgba(255,255,255,0.2)"/>
+          <!-- purple right big -->
+          <circle cx="263" cy="97" r="17" fill="#8820d8"/>
+          <ellipse cx="257" cy="90" rx="5" ry="3" fill="rgba(255,255,255,0.2)"/>
+          <!-- purple right mid -->
+          <circle cx="289" cy="108" r="14" fill="#6a28c0"/>
+          <ellipse cx="284" cy="102" rx="4" ry="2.5" fill="rgba(255,255,255,0.2)"/>
+          <!-- pink small -->
+          <circle cx="272" cy="119" r="10" fill="#c840c8"/>
+          <ellipse cx="269" cy="115" rx="3" ry="2" fill="rgba(255,255,255,0.2)"/>
+          <!-- AK-47 gun -->
+          <g transform="translate(192,148) rotate(-13)">
+            <rect x="0" y="6" width="28" height="8" rx="1" fill="#1a1a1a"/>
+            <rect x="2" y="12" width="20" height="5" rx="1" fill="#222"/>
+            <rect x="26" y="4" width="48" height="10" rx="1" fill="#111"/>
+            <rect x="72" y="6" width="32" height="4" rx="1" fill="#0d0d0d"/>
+            <rect x="103" y="5" width="5" height="6" rx="1" fill="#1a1a1a"/>
+            <rect x="38" y="14" width="10" height="18" rx="2" fill="#1a1a1a" transform="rotate(5,38,14)"/>
+            <path d="M34,14 Q36,22 42,22 L42,20 Q37,20 36,14Z" fill="#0d0d0d"/>
+            <rect x="28" y="3" width="44" height="2" rx="0.5" fill="#222"/>
+            <rect x="64" y="3" width="4" height="3" rx="0.5" fill="#2a2a2a"/>
+          </g>
+          <!-- hud -->
+          <text x="8" y="15" font-family="monospace" font-size="9" fill="#f0c040" font-weight="bold">SCORE  0000</text>
+          <text x="8" y="27" font-family="monospace" font-size="8" fill="#00a3ff" font-weight="bold">ACC   0.0%</text>
+          <text x="8" y="38" font-family="monospace" font-size="7" fill="#6b7280">LEVEL  Easy</text>
+          <text x="346" y="15" font-family="monospace" font-size="10" fill="white" font-weight="bold">0:56</text>
+          <text x="292" y="192" font-family="monospace" font-size="9" fill="white">29 / ∞</text>
+          <rect x="292" y="194" width="80" height="3" rx="1" fill="#0f0f2a"/>
+          <rect x="292" y="194" width="68" height="3" rx="1" fill="#00dcb4"/>
+        </svg>
+        <div class="slbl"><strong>Arena Mode</strong>SPHERE TARGETS · PHONG SHADING</div>
+      </div>
+    </div>
+
+    <!-- BODY GRID -->
+    <div class="body-grid">
+
+      <!-- CG Topics -->
+      <div class="card">
+        <div class="st" style="color:#00dcb4"><span class="dot dt"></span>Computer Graphics Concepts</div>
+        <div class="cgl">
+          <div class="ci t"><span class="cl">Phong Illumination Model</span><span class="ctag">ambient·diffuse·specular</span></div>
+          <div class="ci b"><span class="cl">Vertex & Fragment Shaders (GLSL)</span><span class="ctag">GPU pipeline</span></div>
+          <div class="ci p"><span class="cl">Model · View · Projection Matrices</span><span class="ctag">MVP transform</span></div>
+          <div class="ci a"><span class="cl">VAO / VBO / IBO GPU Buffers</span><span class="ctag">mesh upload</span></div>
+          <div class="ci t"><span class="cl">Depth Buffering & Depth-Disable</span><span class="ctag">occlusion</span></div>
+          <div class="ci b"><span class="cl">Procedural Skybox (time uniform)</span><span class="ctag">star shimmer</span></div>
+          <div class="ci p"><span class="cl">Analytic Ray–Sphere Intersection</span><span class="ctag">raycasting</span></div>
+          <div class="ci a"><span class="cl">Surface-to-GL Texture Upload</span><span class="ctag">HUD render</span></div>
+          <div class="ci t"><span class="cl">View-Space Gun Rendering</span><span class="ctag">FPS camera</span></div>
+          <div class="ci b"><span class="cl">Normal Transform (Inverse Transpose)</span><span class="ctag">lighting math</span></div>
+          <div class="ci p"><span class="cl">Pixel-Space Quad for HUD Overlays</span><span class="ctag">2D in 3D</span></div>
+          <div class="ci a"><span class="cl">Procedural Sphere / Humanoid Geometry</span><span class="ctag">mesh gen</span></div>
+        </div>
+      </div>
+
+      <!-- Right col: tech + controls -->
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div class="card">
+          <div class="st" style="color:#00a3ff"><span class="dot db"></span>Technology Stack</div>
+          <div class="tl">
+            <div class="ti"><span class="tn" style="color:#00dcb4">ModernGL</span><span class="td">OpenGL context, shaders, VAO/VBO, draw calls</span></div>
+            <div class="ti"><span class="tn" style="color:#00a3ff">Pygame</span><span class="td">Window, input, audio, font surfaces</span></div>
+            <div class="ti"><span class="tn" style="color:#a855f7">NumPy</span><span class="td">Matrix buffers, procedural audio synthesis</span></div>
+            <div class="ti"><span class="tn" style="color:#f59e0b">Pyrr</span><span class="td">View / projection / model matrix creation</span></div>
+            <div class="ti"><span class="tn" style="color:#6b7280">GLSL</span><span class="td">Custom shaders: phong · skybox · hud</span></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="st" style="color:#00a3ff"><span class="dot db"></span>Runtime Controls</div>
+          <div class="ctrl-grid">
+            <div class="cr"><span class="ck">L Click</span><span class="ca">Shoot / start</span></div>
+            <div class="cr"><span class="ck">Mouse</span><span class="ca">Look / aim</span></div>
+            <div class="cr"><span class="ck">WASD</span><span class="ca">Move</span></div>
+            <div class="cr"><span class="ck">Shift</span><span class="ca">Sprint</span></div>
+            <div class="cr"><span class="ck">M</span><span class="ca">Toggle mode</span></div>
+            <div class="cr"><span class="ck">R</span><span class="ca">Reload</span></div>
+            <div class="cr"><span class="ck">ESC</span><span class="ca">Pause / quit</span></div>
+            <div class="cr"><span class="ck">R (end)</span><span class="ca">Restart</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOTTOM ROW -->
+    <div class="bot">
+      <!-- Shaders -->
+      <div class="card">
+        <div class="st" style="color:#00dcb4"><span class="dot dt"></span>GLSL Shaders</div>
+        <div class="shd">
+          <div class="sh">
+            <div class="shn t">phong.vert / .frag</div>
+            <div class="shd2">World geometry, targets, gun. Phong lighting + hit_flash + stripe_mode uniforms.</div>
+          </div>
+          <div class="sh">
+            <div class="shn b">skybox.vert / .frag</div>
+            <div class="shd2">Full-screen backdrop, depth disabled. time uniform → star shimmer.</div>
+          </div>
+          <div class="sh">
+            <div class="shn p">hud.vert / .frag</div>
+            <div class="shd2">Text, crosshair, flash, vignette. Toggles use_texture uniform.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pipeline -->
+      <div class="card">
+        <div class="st" style="color:#f59e0b"><span class="dot da"></span>Render Pipeline</div>
+        <div class="pipe">
+          <div class="ps"><span class="pn">1</span><span class="pl">Clear color + depth</span></div>
+          <div class="ps"><span class="pn">2</span><span class="pl">Skybox</span><span class="pd">depth off</span></div>
+          <div class="ps"><span class="pn">3</span><span class="pl">World panels</span></div>
+          <div class="ps"><span class="pn">4</span><span class="pl">Obstacles</span></div>
+          <div class="ps"><span class="pn">5</span><span class="pl">Targets</span></div>
+          <div class="ps"><span class="pn">6</span><span class="pl">Gun (view-space)</span><span class="pd">depth off</span></div>
+          <div class="ps"><span class="pn">7</span><span class="pl">HUD overlays</span><span class="pd">depth off</span></div>
+        </div>
+      </div>
+
+      <!-- Audio + Quick Start -->
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div class="card">
+          <div class="st" style="color:#6b7280"><span class="dot" style="background:#6b7280"></span>Audio System</div>
+          <p style="font-size:9px;color:#6b7280;line-height:1.6;font-weight:300;">
+            Shot & reload from <span style="color:#9ca3af;font-family:'Share Tech Mono',monospace;font-size:8px;">game/sounds/</span>. Hit ping is <span style="color:#d1d5db;font-weight:500;">procedurally synthesised</span> via NumPy. Fallback when files unavailable.
+          </p>
+        </div>
+        <div class="card" style="background:rgba(0,220,180,0.03);border-color:rgba(0,220,180,0.15);">
+          <div class="st" style="color:#00dcb4;margin-bottom:7px;"><span class="dot dt"></span>Quick Start</div>
+          <div style="font-family:'Share Tech Mono',monospace;font-size:8px;color:#4b5563;line-height:2;">
+            python -m venv .venv<br>
+            pip install -r requirements.txt<br>
+            python main.py
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <div class="footer-header">
+        <div class="fl">AIMLABS 3D &nbsp;·&nbsp; COMPUTER GRAPHICS PROJECT</div>
+        <div class="fr" style="color:#00dcb4;">OpenGL 3.3 · Python 3.10+</div>
+      </div>
+      <div class="footer-names">
+        <div class="fl" style="color: #fff;">·&nbsp;Ankush Kapoor &nbsp;24102C0011</div>
+        <div class="fl" style="color: #fff;">·&nbsp;Kshitij Kadam &nbsp;24102C0012</div>
+        <div class="fl" style="color: #fff;">·&nbsp;Yash Waghmare &nbsp;24102C0031</div>
+        <div class="fl" style="color: #fff;">·&nbsp;Shlok Bagwe &nbsp; &nbsp;24102C0037</div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
